@@ -17,7 +17,9 @@ package top.zhacker.boot.leveldb;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * LevelDB key
+ */
 public class LevelDBKey {
 
     private String cachedKey;

@@ -34,9 +34,14 @@ public class AssertionConcern {
         super();
     }
     
-    protected static Validator validator = Validation.byProvider(HibernateValidator.class).configure().failFast(false).buildValidatorFactory().getValidator();
+    protected static Validator validator = Validation.
+            byProvider(HibernateValidator.class).
+            configure().
+            failFast(false).
+            buildValidatorFactory().
+            getValidator();
     
-    
+    /** 验证*/
     public void validate(){
         Set<ConstraintViolation<AssertionConcern>> constraintViolations = validator.validate(this);
         // 抛出检验异常
@@ -78,68 +83,68 @@ public class AssertionConcern {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数长度*/
     protected void assertArgumentLength(String aString, int aMinimum, int aMaximum, String aMessage) {
         int length = aString.trim().length();
         if (length < aMinimum || length > aMaximum) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数不为空*/
     protected void assertArgumentNotEmpty(String aString, String aMessage) {
         if (aString == null || aString.trim().isEmpty()) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言对象不等于*/
     protected void assertArgumentNotEquals(Object anObject1, Object anObject2, String aMessage) {
         if (anObject1.equals(anObject2)) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言对象不是空的*/
     protected void assertArgumentNotNull(Object anObject, String aMessage) {
         if (anObject == null) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数范围*/
     protected void assertArgumentRange(double aValue, double aMinimum, double aMaximum, String aMessage) {
         if (aValue < aMinimum || aValue > aMaximum) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数范围*/
     protected void assertArgumentRange(float aValue, float aMinimum, float aMaximum, String aMessage) {
         if (aValue < aMinimum || aValue > aMaximum) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数范围*/
     protected void assertArgumentRange(int aValue, int aMinimum, int aMaximum, String aMessage) {
         if (aValue < aMinimum || aValue > aMaximum) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数范围*/
     protected void assertArgumentRange(long aValue, long aMinimum, long aMaximum, String aMessage) {
         if (aValue < aMinimum || aValue > aMaximum) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言参数为真*/
     protected void assertArgumentTrue(boolean aBoolean, String aMessage) {
         if (!aBoolean) {
             throw new IllegalArgumentException(aMessage);
         }
     }
-
+    /** 断言状态是假*/
     protected void assertStateFalse(boolean aBoolean, String aMessage) {
         if (aBoolean) {
             throw new IllegalStateException(aMessage);
         }
     }
-
+    /** 断言状态是真*/
     protected void assertStateTrue(boolean aBoolean, String aMessage) {
         if (!aBoolean) {
             throw new IllegalStateException(aMessage);

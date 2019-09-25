@@ -21,24 +21,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * 事件源根实体
+ */
 public abstract class EventSourcedRootEntity extends AssertionConcern {
 
+    /** 变化的方法名称*/
     private static final String MUTATOR_METHOD_NAME = "when";
-
+    /** 变化的方法*/
     private static Map<String, Method> mutatorMethods = new HashMap<String, Method>();
-
+    /** 变化事件*/
     private List<DomainEvent> mutatingEvents;
+    /** 未变化的版本*/
     private int unmutatedVersion;
-
+    /** 变化版本*/
     public int mutatedVersion() {
         return this.unmutatedVersion() + 1;
     }
-
+    /** 变化事件*/
     public List<DomainEvent> mutatingEvents() {
         return this.mutatingEvents;
     }
-
+    /** 未变化的版本*/
     public int unmutatedVersion() {
         return this.unmutatedVersion;
     }
@@ -50,12 +54,13 @@ public abstract class EventSourcedRootEntity extends AssertionConcern {
         this();
 
         for (DomainEvent event : anEventStream) {
+
             this.mutateWhen(event);
         }
 
         this.setUnmutatedVersion(aStreamVersion);
     }
-
+    /** 初始化事件源根实体,并设置变化事件大小默认为2*/
     protected EventSourcedRootEntity() {
         super();
 

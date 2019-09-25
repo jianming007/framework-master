@@ -12,6 +12,7 @@ import lombok.Setter;
 
 
 /**
+ * 领域注册
  * Created by zhacker.
  * Time 2018/8/25 下午4:37
  */

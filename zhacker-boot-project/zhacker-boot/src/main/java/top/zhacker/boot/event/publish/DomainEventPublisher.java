@@ -14,7 +14,7 @@ import org.springframework.context.ApplicationContextAware;
 public class DomainEventPublisher implements ApplicationContextAware {
   
   private static ApplicationContext applicationContext;
-  
+  /** 发布*/
   public static <T> void publish(final T aDomainEvent){
     if(applicationContext!=null) {
       applicationContext.publishEvent(aDomainEvent);

@@ -24,7 +24,7 @@ public interface DomainEvent {
     default int getEventVersion(){
         return eventVersion();
     }
-    /** */
+    /** 时间*/
     default Date getOccurredOn(){
         return occurredOn();
     }

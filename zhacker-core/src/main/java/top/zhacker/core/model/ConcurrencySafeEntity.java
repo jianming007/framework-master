@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 import java.util.Date;
 
 /**
+ * 并发安全实体
  * Created by zhacker.
  * Time 2018/11/13 上午10:40
  */

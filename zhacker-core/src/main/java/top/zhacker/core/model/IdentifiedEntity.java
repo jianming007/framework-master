@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 
 
 /**
+ * 确定的实体
  * Created by zhacker.
  * Time 2018/8/25 上午11:34
  */
